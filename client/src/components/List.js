@@ -2,20 +2,20 @@ import React from "react";
 import "boxicons";
 import { default as api } from "../store/apiSlice";
 
-const obj = [
-  {
-    name: "Savings",
-    color: "rgb(255, 99, 132)",
-  },
-  {
-    name: "Investment",
-    color: "#f9c74f",
-  },
-  {
-    name: "Expense",
-    color: "rgb(54, 162, 235)",
-  },
-];
+// const obj = [
+//   {
+//     name: "Savings",
+//     color: "rgb(255, 99, 132)",
+//   },
+//   {
+//     name: "Investment",
+//     color: "#f9c74f",
+//   },
+//   {
+//     name: "Expense",
+//     color: "rgb(54, 162, 235)",
+//   },
+// ];
 
 const List = () => {
   const { data, isFetching, isSuccess, isError } = api.useGetLabelsQuery();
