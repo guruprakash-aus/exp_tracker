@@ -1,10 +1,15 @@
 {
-  "name": "server",
+  "name": "expense-tracker-app-server",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "client": "cd client && yarn start",
+      "server": "cd server && nodemon server.js",
+      "build": "cd client && npm run build",
+      "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
+      "start": "cd server && node server.js",
+      "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "keywords": [],
   "author": "",

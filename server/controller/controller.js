@@ -53,26 +53,42 @@ const getTransaction = async (req, res) => {
 };
 
 // delete: http://localhost:8080/api/transaction
-const deleteTransaction = async (req, res) => {
-  if (!req.body)
-    return res.status(400).send("Request body is missing in Delete");
-  //   let { id } = req.body;
-
-  // await model.Transaction.findByIdAndDelete(id, function (err) {
-  //     if (!err) return res.json({ message: "Transaction Deleted" });
-  //     return res
-  //         .status(400)
-  //         .json({ message: `Error while deleting Transaction ${err}` });
-  // });
-
+async function deleteTransaction(req, res) {
+  if (!req.body) res.status(400).json({ message: "Request body not Found" });
   await model.Transaction.deleteOne(req.body, function (err) {
-    if (!err) res.json("Transaction Record Deleted...!");
+    if (!err) res.json("Record Deleted...!");
   })
     .clone()
     .catch(function (err) {
-      res.json(`Error while deleting Transaction Record ${err}`);
+      res.json("Error while deleting Transaction Record");
     });
-};
+}
+
+// const deleteTransaction = async (req, res) => {
+//   if (!req.body)
+//     return res.status(400).send("Request body is missing in Delete");
+//   //   let { id } = req.body;
+
+//   //   await model.Transaction.findByIdAndDelete(id, function (err) {
+//   //     if (!err) return (
+//   //         console.log
+//   //         res.json({ message: "Transaction Deleted" })
+//   //         );
+//   //     return res
+//   //       .status(400)
+//   //       .json({ message: `Error while deleting Transaction ${err}` });
+//   //   });
+
+//   await model.Transaction.deleteOne(req.body, function (err) {
+//     if (!err)
+//       return (
+//         console.log(`Transaction Deleted for ${req.body.id}`),
+//         res.json("Transaction Record Deleted...!")
+//       );
+//   }).catch(function (err) {
+//       res.json(`Error while deleting Transaction Record ${err}`);
+//     });
+// };
 
 // get : http://localhost:8080/api/labels
 const getLabels = async (req, res) => {
