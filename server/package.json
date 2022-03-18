@@ -1,8 +1,11 @@
 {
   "name": "expense-tracker-app-server",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "engines": {
+    "node": "16.13.2",
+    "npm": "8.1.2"
+  },
+  "description": "Expense Tracker App Express Server",
   "scripts": {
     "client": "cd client && yarn start",
       "server": "cd server && nodemon server.js",
@@ -12,7 +15,7 @@
       "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "keywords": [],
-  "author": "",
+  "author": "Guru",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
